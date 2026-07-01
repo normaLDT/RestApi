@@ -1,39 +1,38 @@
-package com.landeta.restapi.persistence.impl;
+package com.landeta.restapi.services.impl;
 
 import com.landeta.restapi.entities.Maker;
 import com.landeta.restapi.persistence.IMakerDAO;
-import com.landeta.restapi.repository.MakerRepository;
+import com.landeta.restapi.services.IMakerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
-@Component
-public class MakerDAOImpl implements IMakerDAO {
+@Service
+public class MakerServiceImpl implements IMakerService {
 
     @Autowired
-    MakerRepository makerRepository;
+    private IMakerDAO makerDAO;
 
     @Override
     public List<Maker> findAll() {
-        return (List<Maker>) makerRepository.findAll();
+        return makerDAO.findAll();
     }
 
     @Override
     public Optional<Maker> findById(Long id) {
-        return makerRepository.findById(id);
+        return makerDAO.findById(id);
     }
 
     @Override
     public void save(Maker maker) {
-        makerRepository.save(maker);
+        makerDAO.save(maker);
 
     }
 
     @Override
     public void deleteById(Long id) {
-        makerRepository.deleteById(id);
+        makerDAO.deleteById(id);
 
     }
 }
