@@ -2,6 +2,7 @@ package com.landeta.restapi.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.Builder;
 
 import java.math.BigDecimal;
 
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+@Builder
 @Entity
 @Table(name="producto")
 
